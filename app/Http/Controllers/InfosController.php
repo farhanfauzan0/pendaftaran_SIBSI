@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataSekolah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class InfosController extends Controller
 {
@@ -13,7 +16,8 @@ class InfosController extends Controller
      */
     public function index()
     {
-        //
+        $data = DataSekolah::all();
+        return view('data.infos', ['data' => $data]);
     }
 
     /**
@@ -56,7 +60,8 @@ class InfosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = DataSekolah::find($id);
+        return view('data.edits', ['data' => $data]);
     }
 
     /**
@@ -68,7 +73,18 @@ class InfosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = DataSekolah::find($id);
+        $data->nama_sekolah = $request->nama_sekolah;
+        $data->visi = $request->visi;
+        $data->misi = $request->misi;
+        if (!empty($request->file('foto'))) {
+            $foto = $request->file('foto');
+            $foto_name = Str::random(10) . '.' . $foto->getClientOriginalExtension();
+            $foto->move('uploads/infos/', $foto_name);
+            $data->foto = $foto_name;
+        }
+        $data->update();
+        return back()->with('success', 'Data berhasil dirubah');
     }
 
     /**

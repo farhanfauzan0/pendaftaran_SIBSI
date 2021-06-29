@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DataPendaftaran extends Model
 {
-    protected $table = 'info_pendaftar';
+    protected $table = 'info_pendaftaran';
     use HasFactory;
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataPendaftar;
+use App\Models\DataPendaftaran;
 use Illuminate\Http\Request;
 
 class InfopController extends Controller
@@ -14,6 +15,9 @@ class InfopController extends Controller
      */
     public function index()
     {
+        $data = DataPendaftaran::select('*')->first();
+        // dd($data);
+        return view('data.infop', ['data' => $data]);
     }
 
     /**
@@ -56,7 +60,6 @@ class InfopController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -68,7 +71,12 @@ class InfopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = DataPendaftaran::find($id);
+        $data->prosedur = $request->prosedur;
+        $data->syarat = $request->syarat;
+        $data->update();
+
+        return back();
     }
 
     /**

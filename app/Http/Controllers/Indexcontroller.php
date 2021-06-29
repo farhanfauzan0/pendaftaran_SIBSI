@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataPendaftar;
+use App\Models\DataPendaftaran;
+use App\Models\DataSekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -37,6 +39,24 @@ class Indexcontroller extends Controller
     {
         $data = DataPendaftar::find($id);
         return view('front.bukti', ['data' => $data]);
+    }
+
+    function index_infos()
+    {
+        $data = DataSekolah::first();
+        return view('front.tentang', ['data' => $data]);
+    }
+
+    function index_infop()
+    {
+        $data = DataPendaftaran::select('*')->first();
+        return view('front.info', ['data' => $data]);
+    }
+
+    function index_laporan()
+    {
+        $data = DataPendaftar::select('*')->join('userclient', 'data_pendaftar.id_client', 'userclient.id')->get();
+        return view('data.laporan', ['data' => $data]);
     }
 
     function pendaftaran_index()

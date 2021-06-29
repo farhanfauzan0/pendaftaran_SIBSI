@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pendaftaran Siswa Baru</title>
+    <title>PSB ONLINE</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -64,6 +64,7 @@
                         <li><a href="{{ route('logout') }}">Logout</a></li>
 
                     @endif
+                    <li><a href="{{ route('info.pendaftaran') }}">Informasi Pendaftaran</a></li>
                     <li><a href="{{ route('tentang') }}">Tentang</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
@@ -79,7 +80,7 @@
                 <div class=" col-lg-6 py-5 py-lg-0 order-2 order-lg-1" data-aos="fade-right">
                     <h1>Sistem Pendaftaran Siswa Baru</h1>
                     <h2>Cepat | Praktis</h2>
-                    <a href="#" class="btn-get-started scrollto">Daftar Sekarang!</a>
+                    <a href="{{ route('pendaftaran.index') }}" class="btn-get-started scrollto">Daftar Sekarang!</a>
                 </div>
                 <div style="padding: 100px" class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                     <img src="Bocor/assets/img/imgb.png" class="img-fluid" alt="">

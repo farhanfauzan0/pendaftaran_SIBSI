@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::middleware(['auth:web'])->group(function () {
     Route::get('/admin', [Indexcontroller::class, 'index_admin'])->name('index.admin');
+    Route::get('laporan', [Indexcontroller::class, 'index_laporan'])->name('index.laporan');
 
     Route::resource('data', DataController::class);
     Route::resource('infos', InfosController::class);
@@ -55,9 +56,8 @@ Route::post('/register/post', [Authcontroller::class, 'post_register'])->name('r
 Route::get('/login', [Indexcontroller::class, 'login_index'])->name('login.index');
 Route::post('/login/post', [Authcontroller::class, 'post_login'])->name('login.post');
 
-Route::get('/tentang', function () {
-    return view('front.tentang');
-})->name('tentang');
+Route::get('/tentang', [Indexcontroller::class, 'index_infos'])->name('tentang');
+Route::get('/info', [Indexcontroller::class, 'index_infop'])->name('info.pendaftaran');
 
 
 Route::middleware(['auth:client'])->group(function () {

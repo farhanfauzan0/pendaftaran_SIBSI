@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Booking Swab</title>
+    <title>PSB ONLINE</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -46,72 +46,24 @@
         <div class="container d-flex align-items-center">
 
             <div class="logo mr-auto">
-                <h1 class="text-light"><a href="/">Booking<span>Swab</span></a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <h1 class="text-light"><a href="/">PSB<span>Online</span></a></h1>
             </div>
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    {{-- <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li> --}}
-                    @if (Auth::guard('client')->check())
-                        <li><a href="{{ route('bookingc.index') }}">Booking</a></li>
-                        <li><a href="{{ route('antrianc.index') }}">Antrian</a></li>
-                        <li><a href="{{ route('hasilc.index') }}">Hasil Swab</a></li>
-                        <li><a href="{{ route('bukti.index') }}">Bukti Pembayaran</a></li>
-                    @endif
                     @if (!Auth::guard('client')->check())
                         <li><a href="{{ route('login.index') }}">Login</a></li>
-                        <li><a href="{{ route('register.index') }}">Signup</a></li>
+                        <li><a href="{{ route('register.index') }}">Register</a></li>
+
                     @endif
-                    <li><a href="{{ route('tentang') }}">Tentang</a></li>
+
                     @if (Auth::guard('client')->check())
+                        <li><a href="{{ route('pendaftaran.index') }}">Pendaftaran</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>
-                        <div class="btn-group" hidden>
-                            <div class="notifications request_section no-bg">
-                                <a class="btn btn-default btn-sm messages jn" id="request_btn">
-                                    <i class="fa fa-sliders" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <div class="notifications messages no-bg ">
-                                <a class="btn btn-default btn-sm jn" data-toggle="dropdown" id="notifications_section">
-                                    <i style="color: white" class="fa fa-bell-o"></i><span id="countn"
-                                        class="badge badge-pill badge-danger notifications_badge_top"></span>
-                                </a>
-                                <div class="dropdown-menu drop_box_align" role="menu" id="notifications_dropdown">
-                                    <div id="notifications">
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     @endif
-
-                    {{-- <li class="drop-down"><a href="">Drop Down</a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="drop-down"><a href="#">Drop Down 2</a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                            <li><a href="#">Drop Down 5</a></li>
-                        </ul>
-                    </li> --}}
-
-
-                    {{-- <li class="get-started"><a href="#about">Get Started</a></li> --}}
+                    <li><a href="{{ route('info.pendaftaran') }}">Informasi Pendaftaran</a></li>
+                    <li><a href="{{ route('tentang') }}">Tentang</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
 
@@ -122,10 +74,23 @@
     <section id="hero">
 
         <div class="container">
-            <div class="row d-flex align-items-center" style="height: 660px">
+            <div class="row d-flex align-items-center" style="height: 100%">
                 <div class=" col-lg-12 py-5 py-lg-0 order-2 order-lg-1" data-aos="fade-right"
                     style="text-align: center">
-
+                    <img style="height: 420px; width: 660px" src="{{ pkg_infos($data->foto) }}" class="img-fluid"
+                        alt="">
+                    <br>
+                    <br>
+                    <br>
+                    <p style="color: white"> {{ $data->nama_sekolah }}</p>
+                    <br>
+                    <label style="color: white"> Visi</label>
+                    <br>
+                    <p style="color: white"> {{ $data->visi }}</p>
+                    <br>
+                    <label style="color: white"> Misi</label>
+                    <br>
+                    <p style="color: white"> {{ $data->misi }}</p>
                 </div>
                 {{-- <div style="padding: 100px" class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                     <img src="Bocor/assets/img/0000028.png" class="img-fluid" alt="">

@@ -126,7 +126,7 @@ z-index: 999999">
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{{ route('index.laporan') }}">
                                         <i class="fa fa-exchange"></i>
                                         <span class="link-title menu_hide">&nbsp;Laporan Pendaftaran
                                     </a>
