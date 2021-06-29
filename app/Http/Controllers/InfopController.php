@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPendaftar;
 use Illuminate\Http\Request;
 
 class InfopController extends Controller
@@ -13,7 +14,6 @@ class InfopController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

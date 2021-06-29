@@ -132,7 +132,7 @@
 
     <form class="login-container" action="{{ route('login.post') }}" method="post">
         @csrf
-        <p><input type="email" name="no" placeholder="No Hp"></p>
+        <p><input type="text" name="no" placeholder="No Hp"></p>
         <p><input type="password" name="password" placeholder="Password"></p>
         <p><input type="submit" value="Log in"></p>
         <p style="text-align: center">Belum punya akun?</p>

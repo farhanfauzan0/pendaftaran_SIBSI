@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPendaftar;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
@@ -13,7 +14,8 @@ class DataController extends Controller
      */
     public function index()
     {
-        //
+        $data = DataPendaftar::select('*')->join('userclient', 'data_pendaftar.id_client', 'userclient.id')->get();
+        return view('data.pendaftar', ['data' => $data]);
     }
 
     /**
@@ -34,7 +36,7 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

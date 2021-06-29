@@ -12,7 +12,9 @@ use App\Http\Controllers\Pasiencontroller;
 use App\Http\Controllers\Swabcontroller;
 use App\Models\Pasien;
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +59,12 @@ Route::get('/tentang', function () {
     return view('front.tentang');
 })->name('tentang');
 
+
 Route::middleware(['auth:client'])->group(function () {
+    Route::get('/pendaftaran', [Indexcontroller::class, 'pendaftaran_index'])->name('pendaftaran.index');
+    Route::post('/pendaftaran/post', [Indexcontroller::class, 'pendaftaran_post'])->name('pendaftaran.post');
+    Route::get('/cetak/{id}', [Indexcontroller::class, 'cetak'])->name('cetak.bukti');
+
     Route::get('/logout', function () {
         Auth::guard('client')->logout();
         return redirect()->route('index');
@@ -65,3 +72,11 @@ Route::middleware(['auth:client'])->group(function () {
 });
 
 Route::get('/', [Indexcontroller::class, 'index'])->name('index');
+
+Route::get('/userc', function () {
+    $user = new User();
+    $user->password = Hash::make('P@ssw0rd');
+    $user->username = 'admin';
+    $user->name = 'Admin';
+    $user->save();
+});

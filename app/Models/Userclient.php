@@ -11,4 +11,9 @@ class Userclient extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'userclient';
+    protected $fillable = [
+        'id',
+        'no_telp',
+        'password',
+    ];
 }

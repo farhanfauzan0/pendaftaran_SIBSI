@@ -53,38 +53,18 @@
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
-                    @if (Auth::guard('client')->check())
-                        <li><a href="#">Pendaftaran</a></li>
-                        <li><a href="{#">Bukti Pendaftaran</a></li>
-                    @endif
                     @if (!Auth::guard('client')->check())
                         <li><a href="{{ route('login.index') }}">Login</a></li>
-                        <li><a href="{{ route('register.index') }}">Signup</a></li>
+                        <li><a href="{{ route('register.index') }}">Register</a></li>
+
+                    @endif
+
+                    @if (Auth::guard('client')->check())
+                        <li><a href="{{ route('pendaftaran.index') }}">Pendaftaran</a></li>
+                        <li><a href="{{ route('logout') }}">Logout</a></li>
+
                     @endif
                     <li><a href="{{ route('tentang') }}">Tentang</a></li>
-                    @if (Auth::guard('client')->check())
-                        <li><a href="{{ route('logout') }}">Logout</a></li>
-                        <div class="btn-group" hidden>
-                            <div class="notifications request_section no-bg">
-                                <a class="btn btn-default btn-sm messages jn" id="request_btn">
-                                    <i class="fa fa-sliders" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <div class="notifications messages no-bg ">
-                                <a class="btn btn-default btn-sm jn" data-toggle="dropdown" id="notifications_section">
-                                    <i style="color: white" class="fa fa-bell-o"></i><span id="countn"
-                                        class="badge badge-pill badge-danger notifications_badge_top"></span>
-                                </a>
-                                <div class="dropdown-menu drop_box_align" role="menu" id="notifications_dropdown">
-                                    <div id="notifications">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
                 </ul>
             </nav><!-- .nav-menu -->
 
@@ -99,7 +79,7 @@
                 <div class=" col-lg-6 py-5 py-lg-0 order-2 order-lg-1" data-aos="fade-right">
                     <h1>Sistem Pendaftaran Siswa Baru</h1>
                     <h2>Cepat | Praktis</h2>
-                    <a href="{{ route('bookingc.index') }}" class="btn-get-started scrollto">Daftar Sekarang!</a>
+                    <a href="#" class="btn-get-started scrollto">Daftar Sekarang!</a>
                 </div>
                 <div style="padding: 100px" class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
                     <img src="Bocor/assets/img/imgb.png" class="img-fluid" alt="">

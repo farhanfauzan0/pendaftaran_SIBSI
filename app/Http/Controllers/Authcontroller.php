@@ -64,7 +64,7 @@ class Authcontroller extends Controller
             return redirect()->route('register.index')->with(['status' => true, 'mssg' => 'Masukan data dengan benar', 'jdl' => 'Gagal!', 'icon' => 'error']);
         }
 
-        $checke = Userclient::select('*')->whereemail($request->email)->first();
+        $checke = Userclient::select('*')->whereno_telp($request->no)->first();
         if ($checke) {
             return redirect()->route('register.index')->with(['status' => true, 'mssg' => 'Registrasi gagal! Email telah digunakan', 'jdl' => 'Gagal!', 'icon' => 'error']);
         }
@@ -72,7 +72,7 @@ class Authcontroller extends Controller
         // $user = new Userclient();
         $pass = Hash::make($request->password);
         $simpan = Userclient::insert([
-            'no_hp' => $request->no,
+            'no_telp' => $request->no,
             'password' => $pass
         ]);
 
@@ -97,7 +97,7 @@ class Authcontroller extends Controller
         }
 
         $data = [
-            'no_hp'     => $request->no,
+            'no_telp'     => $request->no,
             'password'  => $request->password,
         ];
 

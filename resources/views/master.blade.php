@@ -108,25 +108,25 @@ z-index: 999999">
                             </a>
                             <ul>
                                 <li>
-                                    <a href="{{ route('pasien.index') }}">
+                                    <a href="{{ route('data.index') }}">
                                         <i class="fa fa-id-card"></i>
                                         <span class="link-title menu_hide">&nbsp;Data Pendaftaran
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('buktia.index') }}">
+                                    <a href="{{ route('infos.index') }}">
                                         <i class="fa fa-id-card"></i>
                                         <span class="link-title menu_hide">&nbsp;Informasi Sekolah
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('booking.index') }}">
+                                    <a href="{{ route('infop.index') }}">
                                         <i class="fa fa-book"></i>
                                         <span class="link-title menu_hide">&nbsp;Informasi Pendaftaran
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('swab.index') }}">
+                                    <a href="">
                                         <i class="fa fa-exchange"></i>
                                         <span class="link-title menu_hide">&nbsp;Laporan Pendaftaran
                                     </a>
